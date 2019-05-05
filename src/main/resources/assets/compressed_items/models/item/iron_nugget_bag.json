@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "compressed_items:item/iron_nugget_bag"
+  }
+}
