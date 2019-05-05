@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "compressed_items:block/totem_block" },
+        "facing=down": { "model": "compressed_items:block/totem_block", "x": 180 },
+        "facing=north": { "model": "compressed_items:block/totem_block", "x": 90 },
+        "facing=south": { "model": "compressed_items:block/totem_block", "x": 90, "y": 180 },
+        "facing=west": { "model": "compressed_items:block/totem_block", "x": 90, "y": -90 },
+        "facing=east": { "model": "compressed_items:block/totem_block", "x": 90, "y": 90 }
+    }
+}

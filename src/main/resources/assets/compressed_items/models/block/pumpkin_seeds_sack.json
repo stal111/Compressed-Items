@@ -1,0 +1,6 @@
+{
+    "parent": "compressed_items:block/sack",
+    "textures": {
+        "compressed": "compressed_items:block/compressed_seeds_pumpkin"
+    }
+}

@@ -1,4 +1,4 @@
-package com.stal111.compressed_items.items;
+package com.stal111.compressed_items.item;
 
 import com.stal111.compressed_items.Main;
 

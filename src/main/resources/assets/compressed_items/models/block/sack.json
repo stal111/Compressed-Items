@@ -1,0 +1,76 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "textures": {
+        "particle": "#compressed",
+		"0": "compressed_items:block/sack_side",
+        "1": "compressed_items:block/sack_top"
+    },
+    "parent": "block/cube_all",
+    "elements": [
+		{
+            "name": "Sack",
+            "from": [ 0.0, 0.0, 0.0 ], 
+            "to": [ 16.0, 9.0, 16.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 0.0, 7.0, 16.0, 16.0 ] },
+                "east": { "texture": "#0", "uv": [ 0.0, 7.0, 16.0, 16.0 ] },
+                "south": { "texture": "#0", "uv": [ 0.0, 7.0, 16.0, 16.0 ] },
+                "west": { "texture": "#0", "uv": [ 0.0, 7.0, 16.0, 16.0 ] },
+                "up": { "texture": "#1", "uv": [ 0.0, 0.0, 16.0, 16.0 ] },
+                "down": { "texture": "#1", "uv": [ 0.0, 0.0, 16.0, 16.0 ] }
+            }
+        },
+        {
+            "name": "Sack",
+            "from": [ 1.0, 9.0, 1.0 ], 
+            "to": [ 15.0, 10.0, 15.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 1.0, 6.0, 15.0, 7.0 ] },
+                "east": { "texture": "#0", "uv": [ 1.0, 6.0, 15.0, 7.0 ] },
+                "south": { "texture": "#0", "uv": [ 1.0, 6.0, 15.0, 7.0 ] },
+                "west": { "texture": "#0", "uv": [ 1.0, 6.0, 15.0, 7.0 ] },
+                "up": { "texture": "#1", "uv": [ 1.0, 1.0, 15.0, 15.0 ] },
+                "down": { "texture": "#1", "uv": [ 1.0, 1.0, 15.0, 15.0 ] }
+            }
+        },
+        {
+            "name": "Sack",
+            "from": [ 0.0, 10.0, 0.0 ], 
+            "to": [ 16.0, 13.0, 16.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 0.0, 3.0, 16.0, 6.0 ] },
+                "east": { "texture": "#0", "uv": [ 0.0, 3.0, 16.0, 6.0 ] },
+                "south": { "texture": "#0", "uv": [ 0.0, 3.0, 16.0, 6.0 ] },
+                "west": { "texture": "#0", "uv": [ 0.0, 3.0, 16.0, 6.0 ] },
+                "up": { "texture": "#1", "uv": [ 0.0, 0.0, 16.0, 16.0 ] },
+                "down": { "texture": "#1", "uv": [ 0.0, 0.0, 16.0, 16.0 ] }
+            }
+        },
+        {
+            "name": "Compressed",
+            "from": [ 1.0, 13.0, 1.0 ], 
+            "to": [ 15.0, 15.0, 15.0 ], 
+            "faces": {
+                "north": { "texture": "#compressed", "uv": [ 1.0, 0.0, 15.0, 2.0 ] },
+                "east": { "texture": "#compressed", "uv": [ 1.0, 13.0, 15.0, 15.0 ] },
+                "south": { "texture": "#compressed", "uv": [ 1.0, 0.0, 15.0, 2.0 ] },
+                "west": { "texture": "#compressed", "uv": [ 1.0, 13.0, 15.0, 15.0 ] },
+                "up": { "texture": "#compressed", "uv": [ 1.0, 1.0, 15.0, 15.0 ] },
+                "down": { "texture": "#compressed", "uv": [ 1.0, 1.0, 15.0, 15.0 ] }
+            }
+        },
+        {
+            "name": "Compressed",
+            "from": [ 3.0, 15.0, 3.0 ], 
+            "to": [ 13.0, 16.0, 13.0 ], 
+            "faces": {
+                "north": { "texture": "#compressed", "uv": [ 3.0, 2.0, 13.0, 3.0 ] },
+                "east": { "texture": "#compressed", "uv": [ 3.0, 12.0, 13.0, 13.0 ] },
+                "south": { "texture": "#compressed", "uv": [ 3.0, 2.0, 13.0, 3.0 ] },
+                "west": { "texture": "#compressed", "uv": [ 3.0, 12.0, 13.0, 13.0 ] },
+                "up": { "texture": "#compressed", "uv": [ 3.0, 3.0, 13.0, 13.0 ] },
+                "down": { "texture": "#compressed", "uv": [ 3.0, 3.0, 13.0, 13.0 ] }
+            }
+        }
+    ]
+}

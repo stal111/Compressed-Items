@@ -1,0 +1,9 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "compressed_items:melon_seeds_sack" 
+  },
+  "variants": {
+    "": [{}]
+  }
+}

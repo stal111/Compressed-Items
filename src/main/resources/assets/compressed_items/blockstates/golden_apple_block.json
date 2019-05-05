@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "compressed_items:block/golden_apple_block" }
+  }
+}

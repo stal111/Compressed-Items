@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "compressed_items:block/nether_star_block" }
+  }
+}
