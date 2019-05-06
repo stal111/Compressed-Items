@@ -1,6 +1,7 @@
 package com.stal111.compressed_items.item;
 
 import com.stal111.compressed_items.Main;
+import com.stal111.compressed_items.block.ModBlocks;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -10,12 +11,12 @@ public class ModItemGroup extends ItemGroup {
 
 	public ModItemGroup(String label) {
 		super(label);
-//		this.setBackgroundImageName("ci_item_search.png");
+		this.setBackgroundImageName("compressed_items_item_search.png");
 	}
 
 	@Override
 	public ItemStack createIcon() {
-		return new ItemStack(ModItems.gold_nugget_bag);
+		return new ItemStack(ModBlocks.wheat_seeds_sack);
 	}
 	
 	@Override
@@ -30,7 +31,7 @@ public class ModItemGroup extends ItemGroup {
 	
 	@Override
 	public ResourceLocation getTabsImage() {
-		return new ResourceLocation(Main.MODID, "textures/gui/ci_tabs.png");
+		return new ResourceLocation(Main.MODID, "textures/gui/compressed_items_tabs.png");
 	}
 
 }

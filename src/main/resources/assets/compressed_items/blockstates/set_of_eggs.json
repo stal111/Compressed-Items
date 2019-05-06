@@ -1,9 +1,5 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "compressed_items:set_of_eggs" 
-  },
   "variants": {
-    "": [{}]
+    "": { "model": "compressed_items:block/set_of_eggs" }
   }
 }

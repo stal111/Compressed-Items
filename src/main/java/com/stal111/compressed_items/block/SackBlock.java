@@ -1,5 +1,9 @@
 package com.stal111.compressed_items.block;
 
+import java.util.Random;
+
+import com.stal111.compressed_items.util.VoxelshapeHelper;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.IBucketPickupHandler;
 import net.minecraft.block.ILiquidContainer;
@@ -11,10 +15,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.IFluidState;
 import net.minecraft.init.Fluids;
+import net.minecraft.init.Particles;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -34,9 +40,9 @@ public class SackBlock extends FallingBlock implements IBucketPickupHandler, ILi
 			Block.makeCuboidShape(0, 10, 0, 16, 13, 16),
 			Block.makeCuboidShape(1, 13, 1, 15, 15, 15),
 			Block.makeCuboidShape(3, 15, 3, 13, 16, 13)};
-
+	
 	public SackBlock(String name) {
-		super(name, Block.Properties.create(Material.CLOTH).sound(SoundType.CLOTH));
+		super(name, Material.CLOTH, 0.9F, SoundType.CLOTH);
 	}
 
 	@Override
@@ -57,6 +63,16 @@ public class SackBlock extends FallingBlock implements IBucketPickupHandler, ILi
 	@Override
 	public BlockFaceShape getBlockFaceShape(IBlockReader worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
 		return BlockFaceShape.UNDEFINED;
+	}
+	
+	@Override
+	public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
+		return VoxelshapeHelper.combineAll(SHAPE);
+	}
+	
+	@Override
+	public VoxelShape getCollisionShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
+		return VoxelshapeHelper.combineAll(SHAPE);
 	}
 
 	@Override
@@ -90,6 +106,20 @@ public class SackBlock extends FallingBlock implements IBucketPickupHandler, ILi
 			world.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(world));
 		}
 		return super.updatePostPlacement(state, facing, facingState, world, currentPos, facingPos);
+	}
+	
+	@Override
+	public void animateTick(IBlockState state, World world, BlockPos pos, Random rand) {
+		if (this == ModBlocks.gunpowder_sack) {
+			if (world.getFluidState(pos.up()) != FluidTags.WATER && world.getFluidState(pos.up()) != FluidTags.LAVA) {
+				for (int i = 0; i < 1; i++) {
+					double d0 = pos.getX() + 0.5F + (rand.nextFloat() - 0.5F) * 0.5D;
+					double d1 = pos.getY() + 0.6F + (rand.nextFloat() - 0.5F) * 0.5D + 0.5D;
+					double d2 = pos.getZ() + 0.5F + (rand.nextFloat() - 0.5F) * 0.5D;
+					world.spawnParticle(Particles.SMOKE, d0, d1 + 0.2D, d2, 0D, 0D, 0D);
+				}
+			}
+		}
 	}
 
 	@Override

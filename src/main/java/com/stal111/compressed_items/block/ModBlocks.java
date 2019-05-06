@@ -35,7 +35,16 @@ public class ModBlocks {
 			leather_block = null,
 			pillow_block = null,
 			nether_star_block = null,
-			charcoal_block = null;
+			charcoal_block = null,
+			sugar_cane_block = null,
+			totem_block = null,
+			wallpaper_block = null,
+			flint_block = null,
+			branches_block = null,
+			apple_block = null,
+			golden_apple_block = null,
+			ender_pearl_block = null,
+			blaze_rod_block = null;
 	
 	 public static void register(final RegistryEvent.Register<Block> blockRegistryEvent) {
 	        registerBlocks(blockRegistryEvent, 
@@ -54,7 +63,16 @@ public class ModBlocks {
 	        		new BasicBlock("leather_block", Material.CLOTH, 1.5F, SoundType.CLOTH),
 	        		new BasicBlock("pillow_block", Material.CLOTH, 0.7F, SoundType.CLOTH),
 	        		new BasicBlock("nether_star_block", Material.IRON, 60F, SoundType.METAL),
-	        		new BasicBlock("charcoal_block", Material.ROCK, 3.5F, SoundType.STONE));
+	        		new BasicBlock("charcoal_block", Material.ROCK, 3.5F, SoundType.STONE),
+	        		new CutoutBlock("sugar_cane_block", Material.PLANTS, 0.7F, SoundType.PLANT),
+	        		new TotemBlock("totem_block", Material.WOOD, 3.0F, SoundType.WOOD),
+	        		new BasicBlock("wallpaper_block", Material.CIRCUITS, 1.0F, SoundType.CLOTH),
+	        		new BasicBlock("flint_block", Material.ROCK, 3F, 20F, SoundType.STONE),
+	        		new BasicBlock("branches_block", Material.WOOD, 3F, 5F, SoundType.WOOD),
+	        		new FallingBlock("apple_block", Material.CACTUS, 1.0F, SoundType.CLOTH),
+	        		new FallingBlock("golden_apple_block", Material.CACTUS, 1.0F, SoundType.CLOTH),
+	        		new BasicBlock("ender_pearl_block", Material.ROCK, 3.1F, 25F, SoundType.STONE),
+	        		new BasicBlock("blaze_rod_block", Material.ROCK, 3.1F, 25F, SoundType.STONE));
 	    }
 	
 	public static void registerBlocks(final RegistryEvent.Register<Block> blockRegistryEvent, final Block... blocks) {
