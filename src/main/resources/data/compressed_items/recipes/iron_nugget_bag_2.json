@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"group": "Bags",
+    
+    "ingredients": [
+        {
+            "item": "compressed_items:iron_nugget_sack"
+        }
+    ],
+    
+    "result":
+    {
+        "item": "compressed_items:iron_nugget_bag",
+        "count": 4
+    }
+}

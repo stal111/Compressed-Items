@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:ender_pearl"
+        }
+        
+    },
+    
+    "result":
+    {
+        "item": "compressed_items:ender_pearl_block"
+    }
+}

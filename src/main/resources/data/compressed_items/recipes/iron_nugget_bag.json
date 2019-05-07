@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+	"group": "Bags",
+    
+    "pattern":
+    [
+        "SS",
+        "SS"
+    
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:iron_nugget"
+        }
+        
+    },
+    
+    "result":
+    {
+        "item": "compressed_items:iron_nugget_bag"
+    }
+}

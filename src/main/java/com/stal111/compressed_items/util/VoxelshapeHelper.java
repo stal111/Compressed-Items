@@ -6,7 +6,7 @@ import net.minecraft.util.math.shapes.IBooleanFunction;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 
-public class VoxelshapeHelper {
+public class VoxelShapeHelper {
 	
 	public static VoxelShape combineAll(final Collection<VoxelShape> shapes) {
         VoxelShape result = VoxelShapes.empty();

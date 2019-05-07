@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:blaze_rod"
+        }
+        
+    },
+    
+    "result":
+    {
+        "item": "compressed_items:blaze_rod_block"
+    }
+}

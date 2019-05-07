@@ -15,29 +15,28 @@ import com.stal111.compressed_items.item.ModItemGroup;
 import com.stal111.compressed_items.item.ModItems;
 
 @Mod(Main.MODID)
-public class Main
-{
+public class Main {
 	public static final String MODID = "compressed_items";
 
-    public static final Logger LOGGER = LogManager.getLogger(Main.MODID);
-    
-    public static final ItemGroup COMPRESSED_ITEMS = new ModItemGroup(Main.MODID);
+	public static final Logger LOGGER = LogManager.getLogger(Main.MODID);
 
-    public Main() {
-        MinecraftForge.EVENT_BUS.register(this);
-    }
+	public static final ItemGroup COMPRESSED_ITEMS = new ModItemGroup(Main.MODID);
 
-    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
-    	
-        @SubscribeEvent
-        public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
-            ModItems.register(itemRegistryEvent);
-        }
-        
-        @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            ModBlocks.register(blockRegistryEvent);
-        }
-    }
+	public Main() {
+		MinecraftForge.EVENT_BUS.register(this);
+	}
+
+	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+	public static class RegistryEvents {
+
+		@SubscribeEvent
+		public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
+			ModItems.register(itemRegistryEvent);
+		}
+
+		@SubscribeEvent
+		public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
+			ModBlocks.register(blockRegistryEvent);
+		}
+	}
 }

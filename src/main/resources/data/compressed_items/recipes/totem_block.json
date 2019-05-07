@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:totem_of_undying"
+        }
+        
+    },
+    
+    "result":
+    {
+        "item": "compressed_items:totem_block"
+    }
+}

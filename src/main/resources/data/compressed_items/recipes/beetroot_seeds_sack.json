@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "Sacks",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:beetroot_seeds"
+        }
+        
+    },
+    
+    "result":
+    {
+        "item": "compressed_items:beetroot_seeds_sack"
+    }
+}

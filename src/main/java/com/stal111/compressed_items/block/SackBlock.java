@@ -2,7 +2,7 @@ package com.stal111.compressed_items.block;
 
 import java.util.Random;
 
-import com.stal111.compressed_items.util.VoxelshapeHelper;
+import com.stal111.compressed_items.util.VoxelShapeHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.IBucketPickupHandler;
@@ -67,12 +67,12 @@ public class SackBlock extends FallingBlock implements IBucketPickupHandler, ILi
 	
 	@Override
 	public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
-		return VoxelshapeHelper.combineAll(SHAPE);
+		return VoxelShapeHelper.combineAll(SHAPE);
 	}
 	
 	@Override
 	public VoxelShape getCollisionShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
-		return VoxelshapeHelper.combineAll(SHAPE);
+		return VoxelShapeHelper.combineAll(SHAPE);
 	}
 
 	@Override

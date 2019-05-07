@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "Sacks",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:sugar"
+        }
+        
+    },
+    
+    "result":
+    {
+        "item": "compressed_items:sugar_sack"
+    }
+}

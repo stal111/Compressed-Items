@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:feather"
+        }
+        
+    },
+    
+    "result":
+    {
+        "item": "compressed_items:pillow_block"
+    }
+}

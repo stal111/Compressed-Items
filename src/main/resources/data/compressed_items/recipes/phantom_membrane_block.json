@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:phantom_membrane"
+        }
+        
+    },
+    
+    "result":
+    {
+        "item": "compressed_items:phantom_membrane_block"
+    }
+}

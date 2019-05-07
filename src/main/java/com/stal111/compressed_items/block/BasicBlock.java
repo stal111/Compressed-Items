@@ -27,6 +27,11 @@ public class BasicBlock extends Block {
 		this.setRegistryName(Main.MODID, name);
 	}
 	
+	public BasicBlock(String name, Material material, float hardness, float resistance) {
+		super(Block.Properties.create(material).hardnessAndResistance(hardness, resistance));
+		this.setRegistryName(Main.MODID, name);
+	}
+	
 	@OnlyIn(Dist.CLIENT)
 	@Override
 	public void animateTick(IBlockState state, World world, BlockPos pos, Random rand) {

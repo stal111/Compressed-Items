@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    
+    "ingredients": [
+        {
+            "item": "compressed_items:sugar_cane_block"
+        }
+    ],
+    
+    "result":
+    {
+        "item": "minecraft:sugar_cane",
+        "count": 9
+    }
+}

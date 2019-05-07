@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:nether_star"
+        }
+        
+    },
+    
+    "result":
+    {
+        "item": "compressed_items:nether_star_block"
+    }
+}
