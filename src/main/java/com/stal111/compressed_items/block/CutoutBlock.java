@@ -6,8 +6,8 @@ import net.minecraft.util.BlockRenderLayer;
 
 public class CutoutBlock extends BasicBlock {
 
-	public CutoutBlock(String name, Material material, float hardnessAndResistance, SoundType soundType) {
-		super(name, material, hardnessAndResistance, soundType);
+	public CutoutBlock(String name, Material material, float hardness, float resistance, SoundType soundType) {
+		super(name, material, hardness, resistance, soundType);
 	}
 	
 	@Override

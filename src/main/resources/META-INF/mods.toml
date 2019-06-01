@@ -2,7 +2,7 @@ modLoader="javafml" #mandatory
 loaderVersion="[25,)" #mandatory (25 is current forge version)
 [[mods]] #mandatory
 modId="compressed_items" #mandatory
-version="1.13.2-1.1" #mandatory
+version="1.13.2-1.3" #mandatory
  # A display name for the mod
 displayName="Compressed Items" #mandatory
 credits="stal111, Xesar_Zk" #optional

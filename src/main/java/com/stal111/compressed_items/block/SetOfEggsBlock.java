@@ -30,18 +30,16 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
-public class SackBlock extends FallingBlock implements IBucketPickupHandler, ILiquidContainer {
+public class SetOfEggsBlock extends FallingBlock implements IBucketPickupHandler, ILiquidContainer {
 
 	private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	
 	private static final VoxelShape[] SHAPE = {
-			Block.makeCuboidShape(0, 0, 0, 16, 9, 16),
-			Block.makeCuboidShape(1, 9, 1, 15, 10, 15),
-			Block.makeCuboidShape(0, 10, 0, 16, 13, 16),
-			Block.makeCuboidShape(1, 13, 1, 15, 15, 15),
-			Block.makeCuboidShape(3, 15, 3, 13, 16, 13)};
+			Block.makeCuboidShape(0, 1, 0, 16, 2, 16),
+			Block.makeCuboidShape(1, 0, 1, 15, 16, 15),
+			Block.makeCuboidShape(0, 9, 0, 16, 10, 16)};
 	
-	public SackBlock(String name) {
+	public SetOfEggsBlock(String name) {
 		super(name, Material.CLOTH, 0.9F, SoundType.CLOTH);
 	}
 

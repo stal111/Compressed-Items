@@ -16,6 +16,7 @@ import com.stal111.compressed_items.item.ModItems;
 
 @Mod(Main.MODID)
 public class Main {
+	
 	public static final String MODID = "compressed_items";
 
 	public static final Logger LOGGER = LogManager.getLogger(Main.MODID);

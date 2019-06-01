@@ -9,9 +9,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class PhantomMembraneBlock extends BasicBlock {
+public class TranslucentBlock extends BasicBlock {
 
-	public PhantomMembraneBlock(String name, Material material, float hardness, float resistance) {
+	public TranslucentBlock(String name, Material material, float hardness, float resistance) {
 		super(name, material, hardness, resistance);
 	}
 

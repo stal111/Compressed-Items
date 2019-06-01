@@ -15,8 +15,8 @@ public class TotemBlock extends BasicBlock {
 	
 	private static final DirectionProperty FACING = BlockDirectional.FACING;
 
-	public TotemBlock(String name, Material material, float hardnessAndResistance, SoundType soundType) {
-		super(name, material, hardnessAndResistance, soundType);
+	public TotemBlock(String name, Material material, float hardness, float resistance, SoundType soundType) {
+		super(name, material, hardness, resistance, soundType);
 		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumFacing.UP));
 	}
 	

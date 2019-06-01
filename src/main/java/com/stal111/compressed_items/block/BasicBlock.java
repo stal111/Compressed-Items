@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Particles;
 import net.minecraft.util.math.BlockPos;
@@ -53,10 +54,21 @@ public class BasicBlock extends Block {
 					double d0 = pos.getX() + 0.5F + (rand.nextFloat() - 0.5F) * 0.5D;
 					double d1 = pos.getY() + 0.6F + (rand.nextFloat() - 0.5F) * 0.5D;
 					double d2 = pos.getZ() + 0.5F + (rand.nextFloat() - 0.5F) * 0.5D;
-					world.spawnParticle(Particles.LARGE_SMOKE, d0, d1 + 0.2D, d2, 0D, 0D, 0D);
+					world.spawnParticle(Particles.LARGE_SMOKE, d0, d1 + 0.35D, d2, 0D, 0D, 0D);
 				}
 			}
 		}
+	}
+	
+	@Override
+	public void onFallenUpon(World world, BlockPos pos, Entity entityIn, float fallDistance) {
+		if (world.getBlockState(pos).getBlock() == ModBlocks.pillow_block) {
+            entityIn.fall(fallDistance, 0.2f);
+        }
+        else {
+            entityIn.fall(fallDistance, 1.0f);
+        }
+		
 	}
 
 }
