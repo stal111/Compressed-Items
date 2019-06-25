@@ -9,8 +9,8 @@ import com.stal111.compressed_items.Main;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -61,14 +61,14 @@ public class ModBlocks {
 	        		new SackBlock("iron_nugget_sack"),
 	        		new SackBlock("gold_nugget_sack"),
 	        		new SetOfEggsBlock("set_of_eggs"),
-	        		new BasicBlock("leather_block", Material.CLOTH, 1.5F, 3.5F, SoundType.CLOTH),
-	        		new BasicBlock("pillow_block", Material.CLOTH, 0.7F, 1.5F, SoundType.CLOTH),
+	        		new BasicBlock("leather_block", Material.WOOL, 1.5F, 3.5F, SoundType.CLOTH),
+	        		new BasicBlock("pillow_block", Material.WOOL, 0.7F, 1.5F, SoundType.CLOTH),
 	        		new BasicBlock("nether_star_block", Material.IRON, 5F, 6000F, SoundType.METAL),
 	        		new BasicBlock("charcoal_block", Material.ROCK, 3.0F, 15F, SoundType.STONE),
 	        		new CutoutBlock("sugar_cane_block", Material.PLANTS, 0.7F, 1.0F, SoundType.PLANT),
 	        		new TotemBlock("totem_block", Material.WOOD, 3.0F, 10F, SoundType.WOOD),
-	        		new BasicBlock("wallpaper_block", Material.CIRCUITS, 1.0F, 1.5F, SoundType.CLOTH),
-	        		new TranslucentBlock("phantom_membrane_block", Material.CIRCUITS, 1.2F, 3.2F),
+	        		new BasicBlock("wallpaper_block", Material.ORGANIC, 1.0F, 1.5F, SoundType.CLOTH),
+	        		new TranslucentBlock("phantom_membrane_block", Material.ORGANIC, 1.2F, 3.2F),
 	        		new BasicBlock("flint_block", Material.ROCK, 3F, 20F, SoundType.STONE),
 	        		new BasicBlock("branches_block", Material.WOOD, 3F, 5F, SoundType.WOOD),
 	        		new FallingBlock("apple_block", Material.CACTUS, 1.0F, SoundType.CLOTH),
@@ -84,7 +84,7 @@ public class ModBlocks {
 	
 	public static void registerItemBlocks(final RegistryEvent.Register<Item> registry) {
 		for (final Block block : blockList) {
-			registry.getRegistry().registerAll(new ItemBlock(block, new Item.Properties().group(Main.COMPRESSED_ITEMS)).setRegistryName(block.getRegistryName()));
+			registry.getRegistry().registerAll(new BlockItem(block, new Item.Properties().group(Main.COMPRESSED_ITEMS)).setRegistryName(block.getRegistryName()));
 		}
 	}
 

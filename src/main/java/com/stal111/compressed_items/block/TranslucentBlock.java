@@ -1,37 +1,21 @@
 package com.stal111.compressed_items.block;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import com.stal111.compressed_items.Main;
 
-public class TranslucentBlock extends BasicBlock {
+import net.minecraft.block.AbstractGlassBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.util.BlockRenderLayer;
+
+public class TranslucentBlock extends AbstractGlassBlock {
 
 	public TranslucentBlock(String name, Material material, float hardness, float resistance) {
-		super(name, material, hardness, resistance);
-	}
-
-	@Override
-	public boolean propagatesSkylightDown(IBlockState state, IBlockReader reader, BlockPos pos) {
-		return true;
+		super(Block.Properties.create(material).hardnessAndResistance(hardness, resistance));
+		this.setRegistryName(Main.MODID, name);
 	}
 
 	@Override
 	public BlockRenderLayer getRenderLayer() {
 		return BlockRenderLayer.TRANSLUCENT;
-	}
-
-	@Override
-	public boolean isFullCube(IBlockState state) {
-		return false;
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public boolean isSideInvisible(IBlockState state, IBlockState adjacentBlockState, EnumFacing side) {
-		return adjacentBlockState.getBlock() == this ? true : false;
 	}
 }

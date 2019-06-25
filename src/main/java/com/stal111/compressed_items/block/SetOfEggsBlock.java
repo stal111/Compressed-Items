@@ -1,36 +1,28 @@
 package com.stal111.compressed_items.block;
 
-import java.util.Random;
-
 import com.stal111.compressed_items.util.VoxelShapeHelper;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.IBucketPickupHandler;
-import net.minecraft.block.ILiquidContainer;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.IWaterLoggable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.BlockFaceShape;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Fluids;
-import net.minecraft.init.Particles;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.StateContainer.Builder;
+import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
 
-public class SetOfEggsBlock extends FallingBlock implements IBucketPickupHandler, ILiquidContainer {
+public class SetOfEggsBlock extends FallingBlock implements IWaterLoggable {
 
 	private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	
@@ -40,119 +32,49 @@ public class SetOfEggsBlock extends FallingBlock implements IBucketPickupHandler
 			Block.makeCuboidShape(0, 9, 0, 16, 10, 16)};
 	
 	public SetOfEggsBlock(String name) {
-		super(name, Material.CLOTH, 0.9F, SoundType.CLOTH);
+		super(name, Material.WOOL, 0.9F, SoundType.CLOTH);
 	}
 
 	@Override
-	protected void fillStateContainer(Builder<Block, IBlockState> builder) {
+	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(WATERLOGGED);
 	}
-	
-	@Override
-	public boolean isFullCube(IBlockState state) {
-		return false;
-	}
-	
+
 	@Override
 	public BlockRenderLayer getRenderLayer() {
 		return BlockRenderLayer.CUTOUT;
 	}
 
 	@Override
-	public BlockFaceShape getBlockFaceShape(IBlockReader worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
-		return BlockFaceShape.UNDEFINED;
-	}
-	
-	@Override
-	public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
-		return VoxelShapeHelper.combineAll(SHAPE);
-	}
-	
-	@Override
-	public VoxelShape getCollisionShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
+	public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 		return VoxelShapeHelper.combineAll(SHAPE);
 	}
 
 	@Override
-	public boolean onBlockActivated(IBlockState state, World worldIn, BlockPos pos, EntityPlayer player, EnumHand hand,
-			EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (state.get(WATERLOGGED)) {
-			worldIn.getPendingFluidTicks().scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
-		}
-		return false;
+	public VoxelShape getCollisionShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
+		return VoxelShapeHelper.combineAll(SHAPE);
 	}
 
 	@Override
-	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos) {
-		if (!world.isRemote) {
-			if (state.get(WATERLOGGED)) {
-				world.getPendingFluidTicks().scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-			}
-		}
+	public BlockState getStateForPlacement(BlockItemUseContext context) {
+		IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
+		return super.getStateForPlacement(context).with(WATERLOGGED,
+				Boolean.valueOf(ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8));
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(BlockItemUseContext context) {
-		return this.getDefaultState().with(WATERLOGGED,
-				Boolean.valueOf(context.getWorld().getFluidState(context.getPos()).getFluid() == Fluids.WATER));
-	}
-
-	@Override
-	public IBlockState updatePostPlacement(IBlockState state, EnumFacing facing, IBlockState facingState, IWorld world,
+	public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld world,
 			BlockPos currentPos, BlockPos facingPos) {
 		if (state.get(WATERLOGGED)) {
 			world.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(world));
 		}
+
 		return super.updatePostPlacement(state, facing, facingState, world, currentPos, facingPos);
-	}
-	
-	@Override
-	public void animateTick(IBlockState state, World world, BlockPos pos, Random rand) {
-		if (this == ModBlocks.gunpowder_sack) {
-			if (world.getBlockState(pos.up()).getBlock() == Blocks.AIR) {
-				for (int i = 0; i < 1; i++) {
-					double d0 = pos.getX() + 0.5F + (rand.nextFloat() - 0.5F) * 0.5D;
-					double d1 = pos.getY() + 0.6F + (rand.nextFloat() - 0.5F) * 0.5D + 0.5D;
-					double d2 = pos.getZ() + 0.5F + (rand.nextFloat() - 0.5F) * 0.5D;
-					world.spawnParticle(Particles.SMOKE, d0, d1 + 0.2D, d2, 0D, 0D, 0D);
-				}
-			}
-		}
-	}
-
-	@Override
-	public boolean canContainFluid(IBlockReader world, BlockPos pos, IBlockState state, Fluid fluid) {
-		return !state.get(WATERLOGGED) && fluid == Fluids.WATER;
-	}
-
-	@Override
-	public boolean receiveFluid(IWorld world, BlockPos pos, IBlockState state, IFluidState fluidState) {
-		if (!state.get(WATERLOGGED) && fluidState.getFluid() == Fluids.WATER) {
-			if (!world.isRemote()) {
-				world.setBlockState(pos, state.with(WATERLOGGED, Boolean.valueOf(true)), 3);
-				world.getPendingFluidTicks().scheduleTick(pos, fluidState.getFluid(),
-						fluidState.getFluid().getTickRate(world));
-			}
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public IFluidState getFluidState(IBlockState state) {
+	public IFluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
 	}
-
-	@Override
-	public Fluid pickupFluid(IWorld world, BlockPos pos, IBlockState state) {
-		if (state.get(WATERLOGGED)) {
-			world.setBlockState(pos, state.with(WATERLOGGED, Boolean.valueOf(false)), 3);
-			return Fluids.WATER;
-		} else {
-			return Fluids.EMPTY;
-		}
-	}
-
 }
