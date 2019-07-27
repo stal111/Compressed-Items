@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:bamboo"
+        }
+        
+    },
+    
+    "result":
+    {
+        "item": "compressed_items:bamboo_block"
+    }
+}

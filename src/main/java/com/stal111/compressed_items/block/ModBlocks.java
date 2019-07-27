@@ -45,7 +45,8 @@ public class ModBlocks {
 			apple_block = null,
 			golden_apple_block = null,
 			ender_pearl_block = null,
-			blaze_rod_block = null;
+			blaze_rod_block = null,
+			bamboo_block = null;
 	
 	 public static void register(final RegistryEvent.Register<Block> blockRegistryEvent) {
 	        registerBlocks(blockRegistryEvent, 
@@ -74,7 +75,8 @@ public class ModBlocks {
 	        		new FallingBlock("apple_block", Material.CACTUS, 1.0F, SoundType.CLOTH),
 	        		new FallingBlock("golden_apple_block", Material.CACTUS, 1.0F, SoundType.CLOTH),
 	        		new BasicBlock("ender_pearl_block", Material.ROCK, 3.1F, 25F, SoundType.STONE),
-	        		new BasicBlock("blaze_rod_block", Material.ROCK, 3.1F, 25F, SoundType.STONE));
+	        		new BasicBlock("blaze_rod_block", Material.ROCK, 3.1F, 25F, SoundType.STONE),
+					new TotemBlock("bamboo_block", Material.PLANTS, 0.7F, 1.0F, SoundType.BAMBOO));
 	    }
 	
 	public static void registerBlocks(final RegistryEvent.Register<Block> blockRegistryEvent, final Block... blocks) {

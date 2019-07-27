@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    
+    "ingredients": [
+        {
+            "item": "compressed_items:bamboo_block"
+        }
+    ],
+    
+    "result":
+    {
+        "item": "minecraft:bamboo",
+        "count": 9
+    }
+}
